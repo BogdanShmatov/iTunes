@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OnboardingView: View {
     
+    var onCompletion: CompletionBlock?
+    
     @State private var selectedTabItem: Int = 0
     
     @State private var tabItems: [OnboardingTabViewItem] = [
@@ -22,7 +24,8 @@ struct OnboardingView: View {
             Image("LaunchScreen")
             VStack {
                 Button("Skip") {
-                    
+                    Session.isSeenOnboarding = true
+                    onCompletion?()
                 }
                 .foregroundStyle(.black)
                 .font(.system(size: 16, weight: .semibold))
@@ -33,9 +36,6 @@ struct OnboardingView: View {
                 iTunesTabView()
             }
             .padding(.bottom, 100)
-            
-            
-            
         }
         .ignoresSafeArea(.all)
     }

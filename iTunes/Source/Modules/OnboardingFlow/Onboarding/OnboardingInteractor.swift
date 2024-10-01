@@ -1,0 +1,14 @@
+//
+//  OnboardingInteractor.swift
+//  iTunes
+//
+//  Created Bogdan Shmatov on 01.10.2024.
+//  Copyright © 2024. All rights reserved.
+//
+
+import UIKit
+
+final class OnboardingInteractor {
+
+    weak var presenter: OnboardingPresenter?
+}

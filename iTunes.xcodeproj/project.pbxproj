@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A98CA342CAC60FD00FED9A4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A98CA332CAC60FD00FED9A4 /* SnapKit */; };
 		5A9ADA182CAC17FA00801313 /* Cannonball in Frameworks */ = {isa = PBXBuildFile; productRef = 5A9ADA172CAC17FA00801313 /* Cannonball */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A9ADA182CAC17FA00801313 /* Cannonball in Frameworks */,
+				5A98CA342CAC60FD00FED9A4 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +86,7 @@
 			name = iTunes;
 			packageProductDependencies = (
 				5A9ADA172CAC17FA00801313 /* Cannonball */,
+				5A98CA332CAC60FD00FED9A4 /* SnapKit */,
 			);
 			productName = iTunes;
 			productReference = 5A9AD9F02CABA0D400801313 /* iTunes.app */;
@@ -115,6 +118,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				5A9ADA162CAC17FA00801313 /* XCLocalSwiftPackageReference "Cannonball" */,
+				5A98CA322CAC60FD00FED9A4 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5A9AD9F12CABA0D400801313 /* Products */;
@@ -362,7 +366,23 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		5A98CA322CAC60FD00FED9A4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		5A98CA332CAC60FD00FED9A4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A98CA322CAC60FD00FED9A4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		5A9ADA172CAC17FA00801313 /* Cannonball */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Cannonball;
