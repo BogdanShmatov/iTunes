@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5A9ADA182CAC17FA00801313 /* Cannonball in Frameworks */ = {isa = PBXBuildFile; productRef = 5A9ADA172CAC17FA00801313 /* Cannonball */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		5A9AD9F02CABA0D400801313 /* iTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -36,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A9ADA182CAC17FA00801313 /* Cannonball in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 			);
 			name = iTunes;
 			packageProductDependencies = (
+				5A9ADA172CAC17FA00801313 /* Cannonball */,
 			);
 			productName = iTunes;
 			productReference = 5A9AD9F02CABA0D400801313 /* iTunes.app */;
@@ -107,6 +113,9 @@
 			);
 			mainGroup = 5A9AD9E72CABA0D300801313;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				5A9ADA162CAC17FA00801313 /* XCLocalSwiftPackageReference "Cannonball" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5A9AD9F12CABA0D400801313 /* Products */;
 			projectDirPath = "";
@@ -345,6 +354,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		5A9ADA162CAC17FA00801313 /* XCLocalSwiftPackageReference "Cannonball" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Cannonball;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A9ADA172CAC17FA00801313 /* Cannonball */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Cannonball;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A9AD9E82CABA0D300801313 /* Project object */;
 }
