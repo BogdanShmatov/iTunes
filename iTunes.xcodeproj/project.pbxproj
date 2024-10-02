@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A98CA342CAC60FD00FED9A4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A98CA332CAC60FD00FED9A4 /* SnapKit */; };
+		5A98CA392CAD358500FED9A4 /* AzazelUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5A98CA382CAD358500FED9A4 /* AzazelUI */; };
 		5A9ADA182CAC17FA00801313 /* Cannonball in Frameworks */ = {isa = PBXBuildFile; productRef = 5A9ADA172CAC17FA00801313 /* Cannonball */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A9ADA182CAC17FA00801313 /* Cannonball in Frameworks */,
+				5A98CA392CAD358500FED9A4 /* AzazelUI in Frameworks */,
 				5A98CA342CAC60FD00FED9A4 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,6 +89,7 @@
 			packageProductDependencies = (
 				5A9ADA172CAC17FA00801313 /* Cannonball */,
 				5A98CA332CAC60FD00FED9A4 /* SnapKit */,
+				5A98CA382CAD358500FED9A4 /* AzazelUI */,
 			);
 			productName = iTunes;
 			productReference = 5A9AD9F02CABA0D400801313 /* iTunes.app */;
@@ -119,6 +122,7 @@
 			packageReferences = (
 				5A9ADA162CAC17FA00801313 /* XCLocalSwiftPackageReference "Cannonball" */,
 				5A98CA322CAC60FD00FED9A4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				5A98CA372CAD358500FED9A4 /* XCLocalSwiftPackageReference "AzazelUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5A9AD9F12CABA0D400801313 /* Products */;
@@ -360,6 +364,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		5A98CA372CAD358500FED9A4 /* XCLocalSwiftPackageReference "AzazelUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = AzazelUI;
+		};
 		5A9ADA162CAC17FA00801313 /* XCLocalSwiftPackageReference "Cannonball" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Cannonball;
@@ -382,6 +390,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5A98CA322CAC60FD00FED9A4 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		5A98CA382CAD358500FED9A4 /* AzazelUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AzazelUI;
 		};
 		5A9ADA172CAC17FA00801313 /* Cannonball */ = {
 			isa = XCSwiftPackageProductDependency;
