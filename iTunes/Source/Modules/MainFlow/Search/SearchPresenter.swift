@@ -1,33 +1,33 @@
 //
-//  MainPresenter.swift
+//  SearchPresenter.swift
 //  iTunes
 //
-//  Created Bogdan Shmatov on 01.10.2024.
+//  Created Bogdan Shmatov on 02.10.2024.
 //  Copyright © 2024. All rights reserved.
 //
 
 import UIKit
 import Cannonball
 
-protocol MainPresenterInput: AnyObject {
+protocol SearchPresenterInput: AnyObject {
     func searchSongs(by keyWords: String) async
     
     func getSong(at index: Int) -> Song?
     func getSongsCount() -> Int
 }
 
-protocol MainPresenterOutput: AnyObject {
-    var presenter: MainPresenterInput? { get set }
+protocol SearchPresenterOutput: AnyObject {
+    var presenter: SearchPresenterInput? { get set }
     
     func searchProceed()
     func searchFailure()
 }
 
-final class MainPresenter {
+final class SearchPresenter {
 
-    weak var output: MainPresenterOutput?
+    weak var output: SearchPresenterOutput?
     
-    var interactor: MainInteractor?
+    var interactor: SearchInteractor?
     
     private var songs: [Song] = []
     
@@ -37,8 +37,8 @@ final class MainPresenter {
     }
 }
 
-// MARK: - MainPresenterInput
-extension MainPresenter: MainPresenterInput {
+// MARK: - SearchPresenterInput
+extension SearchPresenter: SearchPresenterInput {
     func searchSongs(by keyWords: String) async {
         await interactor?.searchSongs(by: keyWords)
     }

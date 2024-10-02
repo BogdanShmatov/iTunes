@@ -9,4 +9,5 @@ import Foundation
 
 protocol MainFactoryProtocol {
     func makeMainView() -> MainViewProtocol
+    func makeSearchView() -> SearchViewProtocol
 }

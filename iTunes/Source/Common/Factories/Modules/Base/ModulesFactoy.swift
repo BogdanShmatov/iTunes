@@ -16,6 +16,12 @@ extension ModulesFactory: MainFactoryProtocol {
         MainAssembly.assembly(with: view)
         return view
     }
+    
+    func makeSearchView() -> any SearchViewProtocol {
+        let view = SearchViewController()
+        SearchAssembly.assembly(with: view)
+        return view
+    }
 }
 
 // MARK: - OnboardingFactoryProtocol

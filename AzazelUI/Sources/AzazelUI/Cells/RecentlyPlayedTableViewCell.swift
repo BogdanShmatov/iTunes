@@ -16,7 +16,7 @@ final public class RecentlyPlayedTableViewCell: UITableViewCell {
     private var trackTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.textColor = .black
         return label
     }()
@@ -24,7 +24,7 @@ final public class RecentlyPlayedTableViewCell: UITableViewCell {
     private var artistLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.textColor = UIColor(red: 0.27, green: 0.15, blue: 0.63, alpha: 1.00)
         return label
     }()

@@ -16,7 +16,7 @@ final public class TopMixCollectionViewCell: UICollectionViewCell {
     var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
         label.textColor = .white

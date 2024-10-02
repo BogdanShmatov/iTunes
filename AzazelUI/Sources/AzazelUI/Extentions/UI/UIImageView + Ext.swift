@@ -5,6 +5,9 @@
 //  Created by Bogdan Shmatov on 02.10.2024.
 //
 
+import UIKit
+import Kingfisher
+
 public extension UIImageView {
     func imageFromServerURL(_ URLString: String,
                             placeHolder: UIImage? = nil,

@@ -104,6 +104,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
+				ORGANIZATIONNAME = iTunes;
 				TargetAttributes = {
 					5A9AD9EF2CABA0D400801313 = {
 						CreatedOnToolsVersion = 16.0;

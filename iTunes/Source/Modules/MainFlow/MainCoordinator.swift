@@ -39,6 +39,12 @@ extension MainCoordinator: Coordinatable {
         view.onCompletion = {
             self.finishFlow?()
         }
+        view.onShowSearch = showSearchView
         return view
+    }
+    
+    func showSearchView() {
+        let view = factory.makeSearchView()
+        router.push(view)
     }
 }

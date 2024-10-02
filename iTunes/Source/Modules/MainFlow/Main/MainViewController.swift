@@ -15,6 +15,7 @@ class MainViewController: UIViewController, MainDataSourceDelegate {
     var dataSource = MainDataSource()
     
     var onCompletion: CompletionBlock?
+    var onShowSearch: CompletionBlock?
 
 	var presenter: MainPresenterInput?
     
@@ -22,6 +23,7 @@ class MainViewController: UIViewController, MainDataSourceDelegate {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search Song"
         searchBar.searchBarStyle = .minimal
+        searchBar.isUserInteractionEnabled = true;
         return searchBar
     }()
     
@@ -80,6 +82,7 @@ class MainViewController: UIViewController, MainDataSourceDelegate {
         super.viewDidLoad()
         setupDelegatesAndDatasources()
         setupView()
+        setupGestures()
         loadData()
     }
     
@@ -134,6 +137,16 @@ class MainViewController: UIViewController, MainDataSourceDelegate {
             make.left.right.bottom.equalToSuperview()
             make.top.equalTo(recentPlayedLabel.snp.bottom).offset(25)
         }
+    }
+    
+    func setupGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(searchTapped))
+        searchView.searchTextField.isUserInteractionEnabled = false
+        searchView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func searchTapped() {
+        onShowSearch?()
     }
     
     func loadData() {

@@ -17,6 +17,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.7.1")),
         .package(url: "https://github.com/onevcat/Kingfisher.git", .upToNextMajor(from: "8.0.3")),
+        .package(url: "https://github.com/Juanpe/SkeletonView.git", from: "1.7.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -25,7 +26,8 @@ let package = Package(
             name: "AzazelUI",
             dependencies: [
                 .product(name: "SnapKit", package: "SnapKit"),
-                .product(name: "Kingfisher", package: "Kingfisher")
+                .product(name: "Kingfisher", package: "Kingfisher"),
+                .product(name: "SkeletonView", package: "SkeletonView")
             ]),
         .testTarget(
             name: "AzazelUITests",

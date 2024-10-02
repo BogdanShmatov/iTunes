@@ -10,4 +10,6 @@ import UIKit
 
 protocol MainViewProtocol: BaseViewProtocol {
     var onCompletion: CompletionBlock? { get set }
+    
+    var onShowSearch: CompletionBlock? { get set }
 }
