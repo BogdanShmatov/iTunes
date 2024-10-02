@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import Cannonball
 
-protocol MainPresenterInput: AnyObject { }
+protocol MainPresenterInput: AnyObject {
+    func searchSongs(by keyWords: String) async
+    
+    func getSong(at index: Int) -> Song?
+    func getSongsCount() -> Int
+}
 
 protocol MainPresenterOutput: AnyObject {
     var presenter: MainPresenterInput? { get set }
+    
+    func searchProceed()
+    func searchFailure()
+    
+    
 }
 
 final class MainPresenter {
@@ -19,7 +30,29 @@ final class MainPresenter {
     weak var output: MainPresenterOutput?
     
     var interactor: MainInteractor?
+    
+    private var songs: [Song] = []
+    
+    func setSongs(_ songs: [Song]) {
+        self.songs = songs
+        output?.searchProceed()
+    }
 }
 
 // MARK: - MainPresenterInput
-extension MainPresenter: MainPresenterInput { }
+extension MainPresenter: MainPresenterInput {
+    func searchSongs(by keyWords: String) async {
+        await interactor?.searchSongs(by: keyWords)
+    }
+    
+    func getSong(at index: Int) -> Song? {
+        if index <= songs.count {
+            return songs[index]
+        }
+        return nil
+    }
+    
+    func getSongsCount() -> Int {
+        return songs.count
+    }
+}

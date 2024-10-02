@@ -28,6 +28,7 @@ public class Router<EndPoint: EndPointTypeProtocol>: NetworkRouter {
                                  timeoutInterval: 20.0)
         
         request.httpMethod = route.httpMethod.rawValue
+        
         do {
             switch route.task {
             case .request:

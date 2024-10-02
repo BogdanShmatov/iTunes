@@ -7,8 +7,23 @@
 //
 
 import UIKit
+import Cannonball
 
 final class MainInteractor {
-
+    
     weak var presenter: MainPresenter?
+    
+    private let client = iTunesRequestProvider(environment: .debug)
+    
+    func searchSongs(by keyWords: String) async {
+        do {
+            let parameters = ["term": keyWords]
+            let response = try await client.search(parameters: parameters)
+            presenter?.setSongs(response?.results ?? [])
+        }
+        catch {
+            presenter?.output?.searchFailure()
+            print(error.localizedDescription)
+        }
+    }
 }
