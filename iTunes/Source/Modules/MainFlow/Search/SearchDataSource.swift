@@ -12,7 +12,10 @@ import Cannonball
 
 protocol SearchDataSourceDelegate: AnyObject {
     var presenter: SearchPresenterInput? { get }
+    
     var tableView: UITableView { get }
+    
+    var onShowPlayer: ((Song, [Song]) -> Void)? { get }
 }
 
 final class SearchDataSource: NSObject {
@@ -63,7 +66,15 @@ extension SearchDataSource: UITableViewDataSource {
 extension SearchDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if isLoading { return }
+        
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let song = delegate?.presenter?.getSong(at: indexPath.row),
+              let songs = delegate?.presenter?.getSongs()
+        else {
+            tableView.deselectRow(at: indexPath, animated: true)
+            return
+        }
+        delegate?.onShowPlayer?(song, songs)
     }
 }
 

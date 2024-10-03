@@ -10,7 +10,10 @@ import AzazelUI
 
 protocol MainDataSourceDelegate: AnyObject {
     var presenter: MainPresenterInput? { get }
+    
     var tableView: UITableView { get }
+    
+    var onShowPlayer: ((Song, [Song]) -> Void)? { get }
 }
 
 final class MainDataSource: NSObject {
@@ -43,6 +46,13 @@ extension MainDataSource: UITableViewDataSource {
 extension MainDataSource: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let song = delegate?.presenter?.getSong(at: indexPath.row),
+              let songs = delegate?.presenter?.getSongs()
+        else {
+            tableView.deselectRow(at: indexPath, animated: true)
+            return
+        }
+        delegate?.onShowPlayer?(song, songs)
     }
 }
 
@@ -67,6 +77,14 @@ extension MainDataSource: UICollectionViewDataSource {
 
 // MARK: - MainDataSource && UICollectionViewDelegate
 extension MainDataSource: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let song = delegate?.presenter?.getSong(at: indexPath.row),
+              let songs = delegate?.presenter?.getSongs()
+        else {
+            return
+        }
+        delegate?.onShowPlayer?(song, songs)
+    }
 }
 
 // MARK: - MainDataSource && UICollectionViewDelegateFlowLayout

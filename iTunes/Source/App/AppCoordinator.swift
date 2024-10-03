@@ -48,7 +48,7 @@ extension AppCoordinator: Coordinatable {
     }
     
     func performOnboardingFlow() {
-        var coordinator = factory.makeOnboardingCoordinator(router: router)
+        let coordinator = factory.makeOnboardingCoordinator(router: router)
         coordinator.finishFlow = { [unowned self, unowned coordinator] in
             self.removeDependency(coordinator)
             self.start()

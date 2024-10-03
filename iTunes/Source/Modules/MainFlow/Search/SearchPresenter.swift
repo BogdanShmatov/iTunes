@@ -12,6 +12,7 @@ import Cannonball
 protocol SearchPresenterInput: AnyObject {
     func searchSongs(by keyWords: String) async
     
+    func getSongs() -> [Song]
     func getSong(at index: Int) -> Song?
     func getSongsCount() -> Int
 }
@@ -20,7 +21,6 @@ protocol SearchPresenterOutput: AnyObject {
     var presenter: SearchPresenterInput? { get set }
     
     func searchProceed()
-    func searchFailure()
 }
 
 final class SearchPresenter {
@@ -41,6 +41,10 @@ final class SearchPresenter {
 extension SearchPresenter: SearchPresenterInput {
     func searchSongs(by keyWords: String) async {
         await interactor?.searchSongs(by: keyWords)
+    }
+    
+    func getSongs() -> [Song] {
+        return songs
     }
     
     func getSong(at index: Int) -> Song? {

@@ -40,11 +40,20 @@ extension MainCoordinator: Coordinatable {
             self.finishFlow?()
         }
         view.onShowSearch = showSearchView
+        view.onShowPlayer = showPlayerView
         return view
     }
     
     func showSearchView() {
         let view = factory.makeSearchView()
+        view.onShowPlayer = showPlayerView
+        router.push(view)
+    }
+    
+    func showPlayerView(_ selectedSong: Song, _ songs: [Song]) {
+        let view = factory.makePlayerView()
+        view.selectedSong = selectedSong
+        view.songs = songs
         router.push(view)
     }
 }

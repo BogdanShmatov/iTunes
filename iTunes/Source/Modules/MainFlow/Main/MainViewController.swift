@@ -16,6 +16,7 @@ class MainViewController: UIViewController, MainDataSourceDelegate {
     
     var onCompletion: CompletionBlock?
     var onShowSearch: CompletionBlock?
+    var onShowPlayer: ((Song, [Song]) -> Void)?
 
 	var presenter: MainPresenterInput?
     
@@ -162,9 +163,5 @@ extension MainViewController: MainAssemblable {
             self.collectionView.reloadData()
             self.tableView.reloadData()
         }
-    }
-    
-    func searchFailure() {
-        print("fetch filure")
     }
 }

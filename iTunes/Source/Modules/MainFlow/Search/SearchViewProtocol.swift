@@ -8,4 +8,6 @@
 
 import UIKit
 
-protocol SearchViewProtocol: BaseViewProtocol { }
+protocol SearchViewProtocol: BaseViewProtocol {
+    var onShowPlayer: ((Song, [Song]) -> Void)? { get set }
+}

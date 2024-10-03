@@ -15,6 +15,8 @@ class SearchViewController: UIViewController, SearchDataSourceDelegate {
     
 	var presenter: SearchPresenterInput?
     
+    var onShowPlayer: ((Song, [Song]) -> Void)?
+    
     private var searchView: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search Song"
@@ -73,6 +75,4 @@ extension SearchViewController: SearchAssemblable {
             self.tableView.reloadData()
         }
     }
-    
-    func searchFailure() {}
 }

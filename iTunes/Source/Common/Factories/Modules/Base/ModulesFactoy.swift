@@ -22,6 +22,12 @@ extension ModulesFactory: MainFactoryProtocol {
         SearchAssembly.assembly(with: view)
         return view
     }
+    
+    func makePlayerView() -> any PlayerViewProtocol {
+        let view = PlayerViewController()
+        PlayerAssembly.assembly(with: view)
+        return view
+    }
 }
 
 // MARK: - OnboardingFactoryProtocol

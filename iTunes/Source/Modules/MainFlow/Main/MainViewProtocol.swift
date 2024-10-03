@@ -12,4 +12,5 @@ protocol MainViewProtocol: BaseViewProtocol {
     var onCompletion: CompletionBlock? { get set }
     
     var onShowSearch: CompletionBlock? { get set }
+    var onShowPlayer: ((Song, [Song]) -> Void)? { get set }
 }
