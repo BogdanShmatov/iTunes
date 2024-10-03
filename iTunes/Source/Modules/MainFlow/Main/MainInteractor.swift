@@ -22,7 +22,6 @@ final class MainInteractor {
             presenter?.setSongs(response?.results ?? [])
         }
         catch {
-            presenter?.output?.searchFailure()
             print(error.localizedDescription)
         }
     }
