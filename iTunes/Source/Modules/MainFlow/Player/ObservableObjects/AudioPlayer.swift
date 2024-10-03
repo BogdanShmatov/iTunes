@@ -11,12 +11,14 @@ import AVFoundation
 
 public class AudioPlayer: ObservableObject {
     private var player: AVPlayer?
+    private var session = AVAudioSession.sharedInstance()
     private var playlist: [URL] = []
     private var currentIndex = 0
     
     @Published var isPlaying = false
     
     func loadPlaylist(currentURL: String, urls: [String]) {
+        activateSession()
         self.currentIndex = urls.firstIndex(of: currentURL) ?? 0
         playlist = urls.compactMap { URL(string: $0) }
         playCurrentTrack()
@@ -48,5 +50,32 @@ public class AudioPlayer: ObservableObject {
     func playPrevious() {
         currentIndex = (currentIndex - 1 + playlist.count) % playlist.count
         playCurrentTrack()
+    }
+    
+    private func activateSession() {
+        do {
+            try session.setCategory(.playback, mode: .default)
+            
+        } catch _ {
+            print("catch")
+        }
+        
+        do {
+            try session.setActive(true)
+        } catch _ {
+            print("catch")
+        }
+    }
+    
+    func deactivateSession() {
+        do {
+            try session.setActive(false)
+        } catch let error as NSError {
+            print("Failed to deactivate audio session: \(error.localizedDescription)")
+        }
+    }
+    
+    deinit {
+        deactivateSession()
     }
 }
